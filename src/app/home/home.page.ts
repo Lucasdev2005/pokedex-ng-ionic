@@ -8,8 +8,9 @@ import { PokemonService } from '../services/pokemon.service';
   providers: [PokemonService]
 })
 export class HomePage {
-  public pokemons: any = [];
+  public pokemons: any;
   public currentPage: number = 0;
+  public loadingPokemons: boolean = true;
 
   constructor(public pokemon: PokemonService) {
     this.loadPokemons(this.currentPage);
@@ -17,9 +18,13 @@ export class HomePage {
 
   async loadPokemons(currentPage: number) {
     this.pokemons = [];
+    this.loadingPokemons = true;
     this.pokemon.listPokemons(currentPage).subscribe({
       next: (response: any) => {
         this.pokemons = response;
+        if (this.pokemons.length > 0) {
+          this.loadingPokemons = false;
+        }
       }
     });
   }
