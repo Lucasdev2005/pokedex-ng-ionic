@@ -16,4 +16,8 @@ export class PokemonService extends BaseService {
     ) as Observable<any[]>;;
   }
 
+  public getPokemonByName(name: string) {
+    return this.get(name);
+  }
+
 }
