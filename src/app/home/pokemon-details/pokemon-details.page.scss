@@ -7,6 +7,7 @@ ion-header {
 
   img {
     margin-top: 30%;
+    animation: float 6s ease-in-out infinite;
   }
 }
 
@@ -20,4 +21,17 @@ ion-header {
   border-radius: 30px;
   padding: 1%;
   width: 100%;
+}
+
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-10px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
 }
