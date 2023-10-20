@@ -3,9 +3,14 @@ ion-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 25%;
+  height: 20%;
 
   img {
     margin-top: 30%;
   }
+}
+
+.content {
+  height: 100%;
+  margin-top: 25%;
 }
