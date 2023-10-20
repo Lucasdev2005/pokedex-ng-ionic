@@ -1,5 +1,5 @@
 <ion-header [class]="pokemon?.types[0].type.name">
-  <img [src]="pokemon?.sprites.front_default" alt="">
+  <img [src]="pokemon?.sprites[currentImage]" (click)="changePicture()" alt="">
 </ion-header>
 
 <ion-content>
