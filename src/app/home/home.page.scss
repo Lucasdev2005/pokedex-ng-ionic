@@ -15,3 +15,12 @@ ion-header {
         font-weight: bold;
     }
 }
+
+.pokemons {
+    width: 100%;
+    padding: 5%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 2fr; /* Two equal-width columns */
+    grid-gap: 10px; /* Gap between grid items */
+}

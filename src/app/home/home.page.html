@@ -12,5 +12,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
+  <div class="pokemons" *ngIf="pokemons">
+    <app-card-pokemon *ngFor="let pokemon of pokemons" [pokemonName]="pokemon.name" [pokemonImg]="pokemon.sprites.front_default" />
+  </div>
 </ion-content>

@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CardPokemonComponent } from './card-pokemon/card-pokemon.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     HomePageRoutingModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, CardPokemonComponent],
 })
 export class HomePageModule {}

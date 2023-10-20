@@ -8,7 +8,7 @@ import { Observable, forkJoin, switchMap } from 'rxjs';
 export class PokemonService extends BaseService {
 
   public listPokemons(currentPage: number): Observable<any[]> {
-    return this.get(`?offset=${currentPage}&limit=10`).pipe(
+    return this.get(`?offset=${currentPage}&limit=6`).pipe(
       switchMap((response: any) => {
         const pokemonObservables = response.results.map((pokemon: any) => this.get(pokemon.name));
         return forkJoin(pokemonObservables);

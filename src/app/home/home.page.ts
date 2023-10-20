@@ -10,11 +10,11 @@ import { PokemonService } from '../services/pokemon.service';
 export class HomePage {
   public pokemons: any = []; 
   constructor(public pokemon: PokemonService) {
-    this.loadPokemons();
+    this.loadPokemons(0);
   }
 
-  async loadPokemons() {
-    this.pokemon.listPokemons(10).subscribe({
+  async loadPokemons(currentPage: number) {
+    this.pokemon.listPokemons(currentPage).subscribe({
       next: (response: any) => {
         this.pokemons = response;
         console.log("this.pokemons", this.pokemons);
