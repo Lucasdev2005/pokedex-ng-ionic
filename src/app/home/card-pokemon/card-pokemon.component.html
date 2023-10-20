@@ -1,4 +1,6 @@
-<div class="poke-card">
-  <img [src]="pokemonImg" alt="">
-  <ion-text>{{pokemonName}}</ion-text>
+<div [class]="'poke-card ' + pokemonType + '-light'">
+  <img [src]="pokemonImg">
+  <div class="bottom-card">
+    <ion-text color="danger"><b>{{pokemonName}}</b></ion-text>
+  </div>
 </div>

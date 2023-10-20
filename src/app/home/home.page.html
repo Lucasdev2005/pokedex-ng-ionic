@@ -10,10 +10,9 @@
       <ion-input placeholder="EX: Pikachu" />
     </div>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <div class="pokemons" *ngIf="!loadingPokemons">
-    <app-card-pokemon *ngFor="let pokemon of pokemons" [pokemonName]="pokemon.name" [pokemonImg]="pokemon.sprites.front_default" />
+    <app-card-pokemon *ngFor="let pokemon of pokemons" [pokemonType]="pokemon.types[0].type.name" [pokemonName]="pokemon.name" [pokemonImg]="pokemon.sprites.front_default" />
   </div>
   <div class="pokemons" *ngIf="loadingPokemons">
     <ion-skeleton-text *ngFor="let item of [1,2,3,4,5,6]" [animated]="true" style="width: 100%; border-radius: 30px;"></ion-skeleton-text>
