@@ -14,5 +14,4 @@ export class CardPokemonComponent  implements OnInit {
   constructor() { }
 
   ngOnInit() {}
-
 }

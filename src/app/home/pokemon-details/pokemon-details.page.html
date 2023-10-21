@@ -1,11 +1,14 @@
 <ion-header [class]="pokemon?.types[0].type.name">
-  <img [src]="pokemon?.sprites[currentImage]" (click)="changePicture()" alt="">
+  <img [src]="pokemon?.sprites[currentImage]" alt="">
 </ion-header>
 
 <ion-content scroll-y="false">
   <div class="content">
     <ion-row class="ion-justify-content-center">
       <h1><b>{{pokemon?.name}}</b></h1>
+      <ion-button fill="clear" (click)="handleFavoritPokemon(pokemon)">
+        <ion-icon slot="icon-only" [color]="favoritedPokemon ? 'warning' : 'medium'" name="star"></ion-icon>
+      </ion-button>
     </ion-row>
     <ion-row class="ion-justify-content-center">
       <ion-chip *ngFor="let type of pokemon?.types" [class]="type.type.name">{{type.type.name}}</ion-chip>

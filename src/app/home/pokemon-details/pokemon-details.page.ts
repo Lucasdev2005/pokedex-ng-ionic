@@ -12,6 +12,7 @@ export class PokemonDetailsPage implements OnInit {
 
   public pokemon: any;
   public currentImage: "front_default" | "front_shiny" = "front_default";
+  public favoritedPokemon: boolean = false;
 
   constructor(public pokemonService: PokemonService, public route: ActivatedRoute) { }
 
@@ -19,8 +20,10 @@ export class PokemonDetailsPage implements OnInit {
     this.route.params.subscribe({
       next: (params: any) => {
         this.pokemonService.getPokemonByName(params.name).subscribe({
-          next: (response) => {
+          next: async (response) => {
             this.pokemon = response;
+            let pokemons = JSON.parse(localStorage.getItem("pokemons") || "[]");
+            this.favoritedPokemon = await this.pokeBinarySearch(pokemons, 0, pokemons.length -1, this.pokemon.order).include;
           }
         });
       }
@@ -36,4 +39,37 @@ export class PokemonDetailsPage implements OnInit {
     }
   }
 
+  handleFavoritPokemon(pokemon: any) {
+    let pokemons: any[]  = JSON.parse(localStorage.getItem("pokemons") || '[]');
+    let pokeFind= this.pokeBinarySearch(pokemons, 0, pokemons.length - 1, pokemon.order);
+    if (!pokeFind.include) {
+      pokemons.push(pokemon);
+      pokemons.sort((a, b) => a.order - b.order);
+      localStorage.setItem("pokemons", JSON.stringify(pokemons));
+      this.favoritedPokemon = true;
+    }
+    else {
+      pokemons.splice(pokemons[pokeFind.pokemonIndex], 1);
+      localStorage.setItem("pokemons", JSON.stringify(pokemons));
+      this.favoritedPokemon = false;
+    }
+  }
+
+  pokeBinarySearch(array: any[], start: number, end: number,targetOrder: number): any {
+    while (start <= end) {      
+      let middle = Math.floor((start + end) / 2);
+      if (array[middle].order == targetOrder) {
+        return {
+          include: true,
+          pokemonIndex: middle
+        };
+      } else if (array[middle].order < targetOrder) {
+        start = middle + 1;
+      } else if (array[middle].order > targetOrder) {
+        end = middle - 1;
+      }
+      console.log(`Updated start: ${start}, end: ${end}`);
+    }
+    return false;
+  }
 }

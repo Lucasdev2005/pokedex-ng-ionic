@@ -1,19 +1,19 @@
 ion-header {
-  padding: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 20%;
+  align-items: center;
+  height: 30%;
 
   img {
-    margin-top: 30%;
-    animation: float 6s ease-in-out infinite;
+    width: 400px;
+    max-width: 300px;
+    height: 250px;
   }
 }
 
 .content {
   height: 100%;
-  margin-top: 25%;
 }
 
 .bar {
@@ -21,17 +21,4 @@ ion-header {
   border-radius: 30px;
   padding: 1%;
   width: 100%;
-}
-
-
-@keyframes float {
-	0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-10px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
 }
