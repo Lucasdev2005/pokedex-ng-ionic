@@ -49,7 +49,7 @@ export class PokemonDetailsPage implements OnInit {
       this.favoritedPokemon = true;
     }
     else {
-      pokemons.splice(pokemons[pokeFind.pokemonIndex], 1);
+      pokemons.splice(pokeFind.pokemonIndex, 1);
       localStorage.setItem("pokemons", JSON.stringify(pokemons));
       this.favoritedPokemon = false;
     }
