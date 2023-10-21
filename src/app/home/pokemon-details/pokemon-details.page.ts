@@ -68,7 +68,6 @@ export class PokemonDetailsPage implements OnInit {
       } else if (array[middle].order > targetOrder) {
         end = middle - 1;
       }
-      console.log(`Updated start: ${start}, end: ${end}`);
     }
     return false;
   }
