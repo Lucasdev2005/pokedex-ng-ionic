@@ -11,7 +11,6 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 export class PokemonDetailsPage implements OnInit {
 
   public pokemon: any;
-  public currentImage: "front_default" | "front_shiny" = "front_default";
   public favoritedPokemon: boolean = false;
 
   constructor(public pokemonService: PokemonService, public route: ActivatedRoute) { }
@@ -28,15 +27,6 @@ export class PokemonDetailsPage implements OnInit {
         });
       }
     });
-  }
-
-  changePicture() {
-    if (this.currentImage == "front_default") {
-      this.currentImage = "front_shiny";
-    }
-    else {
-      this.currentImage = "front_default";
-    }
   }
 
   handleFavoritPokemon(pokemon: any) {
