@@ -42,11 +42,11 @@ ion-header {
       transform: rotate(0deg);
   }
   33% {
-      transform: rotate(720deg); /* Duas voltas completas (360 * 2) */
+      transform: rotate(720deg);
       filter: blur(2px);
   }
   66%, 100% {
       filter: blur(0px);
-      transform: rotate(720deg); /* Permanece parado por 2 segundos */
+      transform: rotate(720deg);
   }
 }
