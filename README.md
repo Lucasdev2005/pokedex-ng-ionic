@@ -11,7 +11,13 @@ Pokedex-NG-Ionic é uma aplicação móvel desenvolvida com o Ionic Framework e 
 - Listar todos os Pokémon disponíveis.
 - Adicionar Pokémon à lista de favoritos.
 - Visualizar os Pokémon favoritos.
-
+## Testando no seu Celular!
+- Baixe o arquivo
+- clique em  instalar
+- clique em "Mais Detalhes"
+- Clique em instalar mesmo assim
+  
+<a href="https://drive.google.com/file/d/1PPF-qaiKkXAjjSs8UZxyrdvqWgw7Sv6N/view?usp=sharing">Link para o arquivo</a>
 ## Pré-requisitos
 
 <div align="center">
