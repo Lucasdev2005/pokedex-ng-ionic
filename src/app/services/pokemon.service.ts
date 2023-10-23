@@ -20,10 +20,7 @@ export class PokemonService extends BaseService {
     return this.get(name);
   }
 
-
-
 }
-
 
 interface Ability {
   ability: {name: string; url: string};

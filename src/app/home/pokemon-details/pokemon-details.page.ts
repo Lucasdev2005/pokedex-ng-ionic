@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PokemonService } from 'src/app/services/pokemon.service';
+import { Pokemon, PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -29,8 +29,8 @@ export class PokemonDetailsPage implements OnInit {
     });
   }
 
-  handleFavoritPokemon(pokemon: any) {
-    let pokemons: any[]  = JSON.parse(localStorage.getItem("pokemons") || '[]');
+  handleFavoritPokemon(pokemon: Pokemon) {
+    let pokemons: Pokemon[]  = JSON.parse(localStorage.getItem("pokemons") || '[]');
     let pokeFind= this.pokeBinarySearch(pokemons, 0, pokemons.length - 1, pokemon.order);
     if (!pokeFind.include) {
       pokemons.push(pokemon);
@@ -45,7 +45,7 @@ export class PokemonDetailsPage implements OnInit {
     }
   }
 
-  pokeBinarySearch(array: any[], start: number, end: number,targetOrder: number): any {
+  pokeBinarySearch(array: Pokemon[], start: number, end: number,targetOrder: number): any {
     while (start <= end) {
       let middle = Math.floor((start + end) / 2);
       if (array[middle].order == targetOrder) {
