@@ -13,6 +13,7 @@ export class HomePage {
   public currentPage: number = 0;
   public pokemonName: string = "";
   public loadingPokemons: boolean = true;
+  public filteredByFavorites: boolean = false;
 
   constructor(public pokemon: PokemonService, public router: Router) {
     this.loadPokemons(this.currentPage);
@@ -44,5 +45,17 @@ export class HomePage {
   handleViewPokemonByName() {
     this.pokemonName = this.pokemonName.toLowerCase();
     this.router.navigate(['home/pokemon-details/' + this.pokemonName]);
+  }
+
+  async handleListFavoritesPokemons() {
+    let pokeStorage: Pokemon[] = await JSON.parse(localStorage.getItem("pokemons") || "[]");
+    this.filteredByFavorites = !this.filteredByFavorites;
+    if (this.filteredByFavorites && pokeStorage.length > 0) {
+      console.log("[handleListFavoritesPokemons]", pokeStorage);
+      this.pokemons = pokeStorage;
+    }
+    else if (!this.filteredByFavorites) {
+      this.loadPokemons(this.currentPage);
+    }
   }
 }

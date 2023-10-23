@@ -4,10 +4,12 @@
     <ion-text color="light" class="ion-margin-start">
       <h1>Pokédex</h1>
     </ion-text>
+    <ion-icon slot="icon-only" color="warning" name="star"></ion-icon>
   </ion-row>
     <div class="input-circle">
       <ion-icon size="large" fill="clear" name="search" color="danger" (click)="handleViewPokemonByName()"></ion-icon>
       <ion-input [(ngModel)]="pokemonName" placeholder="EX: Pikachu" />
+      <ion-icon slot="icon-only" size="large" [color]="filteredByFavorites ? 'warning' : 'medium'" (click)="handleListFavoritesPokemons()" name="star"></ion-icon>
     </div>
 </ion-header>
 <ion-content [fullscreen]="true">
@@ -18,7 +20,7 @@
     <ion-skeleton-text *ngFor="let item of [1,2,3,4,5,6]" [animated]="true" style="width: 100%; border-radius: 30px;"></ion-skeleton-text>
   </div>
 </ion-content>
-<ion-footer>
+<ion-footer *ngIf="!this.filteredByFavorites">
   <ion-row class="ion-justify-content-center ion-padding">
     <ion-button color="danger" fill="outline" *ngIf="currentPage != 0" (click)="paginateTo('left')">
       <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
