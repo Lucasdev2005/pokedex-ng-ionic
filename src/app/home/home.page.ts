@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PokemonService } from '../services/pokemon.service';
+import { Pokemon, PokemonService } from '../services/pokemon.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,7 @@ import { PokemonService } from '../services/pokemon.service';
   providers: [PokemonService]
 })
 export class HomePage {
-  public pokemons: any;
+  public pokemons: Pokemon[] = [] as Pokemon[];
   public currentPage: number = 0;
   public loadingPokemons: boolean = true;
 
@@ -20,7 +20,7 @@ export class HomePage {
     this.pokemons = [];
     this.loadingPokemons = true;
     this.pokemon.listPokemons(currentPage).subscribe({
-      next: (response: any) => {
+      next: (response: Pokemon[]) => {
         this.pokemons = response;
         if (this.pokemons.length > 0) {
           this.loadingPokemons = false;

@@ -56,7 +56,7 @@ export class PokemonDetailsPage implements OnInit {
   }
 
   pokeBinarySearch(array: any[], start: number, end: number,targetOrder: number): any {
-    while (start <= end) {      
+    while (start <= end) {
       let middle = Math.floor((start + end) / 2);
       if (array[middle].order == targetOrder) {
         return {
