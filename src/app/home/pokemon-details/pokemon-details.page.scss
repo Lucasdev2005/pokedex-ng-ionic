@@ -16,9 +16,37 @@ ion-header {
   height: 100%;
 }
 
+.no-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    animation: spin 2s linear infinite;
+  }
+}
+
 .bar {
   height: 4px;
   border-radius: 30px;
   padding: 1%;
   width: 100%;
+}
+
+@keyframes spin {
+  0%, 100% {
+      filter: blur(0px);
+      transform: rotate(0deg);
+  }
+  33% {
+      transform: rotate(720deg); /* Duas voltas completas (360 * 2) */
+      filter: blur(2px);
+  }
+  66%, 100% {
+      filter: blur(0px);
+      transform: rotate(720deg); /* Permanece parado por 2 segundos */
+  }
 }

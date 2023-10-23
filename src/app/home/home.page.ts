@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Pokemon, PokemonService } from '../services/pokemon.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,10 @@ import { Pokemon, PokemonService } from '../services/pokemon.service';
 export class HomePage {
   public pokemons: Pokemon[] = [] as Pokemon[];
   public currentPage: number = 0;
+  public pokemonName: string = "";
   public loadingPokemons: boolean = true;
 
-  constructor(public pokemon: PokemonService) {
+  constructor(public pokemon: PokemonService, public router: Router) {
     this.loadPokemons(this.currentPage);
   }
 
@@ -38,4 +40,9 @@ export class HomePage {
     }
     this.loadPokemons(this.currentPage);
   };
+
+  handleViewPokemonByName() {
+    this.pokemonName = this.pokemonName.toLowerCase();
+    this.router.navigate(['home/pokemon-details/' + this.pokemonName]);
+  }
 }

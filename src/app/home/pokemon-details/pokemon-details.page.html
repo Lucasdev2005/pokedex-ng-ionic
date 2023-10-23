@@ -1,9 +1,9 @@
-<ion-header [class]="pokemon?.types[0].type.name">
-  <img [src]="pokemon?.sprites.other['official-artwork'].front_default" alt="">
+<ion-header [class]="pokemon?.types[0].type.name || 'steel'">
+  <img [src]="pokemon?.sprites.other['official-artwork'].front_default || '../../../assets/silhouette.svg'" alt="">
 </ion-header>
 
 <ion-content scroll-y="false">
-  <div class="content">
+  <div class="content" *ngIf="pokemon">
     <ion-row class="ion-justify-content-center">
       <h1><b>{{pokemon?.name}}</b></h1>
       <ion-button fill="clear" (click)="handleFavoritPokemon(pokemon)">
@@ -18,5 +18,11 @@
       <div [class]="'bar ' + pokemon?.types[0].type.name" [style.width]="stat.base_stat + '%'"></div>
       <ion-text slot="end">{{stat.base_stat}}</ion-text>
     </ion-item>
+  </div>
+  <div class="no-content ion-text-center ion-justify-content-center">
+    <img src="../../../assets//pokemon-logo-black.svg" alt="">
+    <ion-text>
+      <h1>Pokémon não Achado, Tente procurar por outro nome!</h1>
+    </ion-text>
   </div>
 </ion-content>

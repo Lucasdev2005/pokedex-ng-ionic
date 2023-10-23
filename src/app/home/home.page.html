@@ -6,8 +6,8 @@
     </ion-text>
   </ion-row>
     <div class="input-circle">
-      <ion-icon size="large" fill="clear" name="search" color="danger"></ion-icon>
-      <ion-input placeholder="EX: Pikachu" />
+      <ion-icon size="large" fill="clear" name="search" color="danger" (click)="handleViewPokemonByName()"></ion-icon>
+      <ion-input [(ngModel)]="pokemonName" placeholder="EX: Pikachu" />
     </div>
 </ion-header>
 <ion-content [fullscreen]="true">
